@@ -18,13 +18,14 @@ def test_utils_what_symb_with_plus1():
 def test_utils_what_symb_with_plus2():
     eq_(ex2.what_symb(1), "+")
 
-# Ex1
-
 def test_ex1_smallest_with_small_numbers():
     eq_(ex1.smallest([1, 2, 3, 4, 5]), 1) 
 
 def test_ex1_smallest_with_big_numbers():
     eq_(ex1.smallest([2382328, 999999, 21222, 1111]), 1111) 
+
+def test_ex1_smallest_with_return_index_True():
+    eq_(ex1.smallest([238328, 999999, 21222, 1111], r_i=True), [1111, 3]) 
 
 # Ex2
 

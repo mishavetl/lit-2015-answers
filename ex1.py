@@ -3,40 +3,27 @@
 
 import random
 
-def smallest(l):
-    if len(l) > 1:
-        n = l[0]
-        del l[0]
+def smallest(l, i=0):
+    print(l)
+    print(i)
+    if len(l) > i + 1:
+        n = l[i]
 
-        if n < l[0]:
-            l[0] = n
+        if n < l[i + 1]:
+            l[i + 1] = n
 
-        return smallest(l)
+        return smallest(l, i + 1)
 
     else:
-        return l[0]
+        return l[i]
 
 
 if __name__ == "__main__":
-    print("Type range of random: ( You can use default - just press enter)") 
-    n1 = input()
+    print("n1 n2 n3 n4")
+    l = input().split()
 
-    if n1 == "":
-        n1 = 0
-        n2 = 10000
+    print(smallest(l))
 
-    else:
-        n1 = int(n1)
-        n2 = int(input())
-
-    print(smallest([random.randint(n1, n2), \
-                    random.randint(n1, n2), \
-                    random.randint(n1, n2), \
-                    random.randint(n1, n2)
-                ]
-            )
-        )
-    
     input()
 
 
