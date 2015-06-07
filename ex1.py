@@ -1,26 +1,19 @@
 #!/usr/bin/env python3.4
 # -*- coding: utf-8 -*-
 
-import random
+def smallest(l, i=0, i_min=0):
+    if len(l) == i:
+        return i_min + 1
 
-def smallest(l, i=0):
-    print(l)
-    print(i)
-    if len(l) > i + 1:
-        n = l[i]
+    if l[i] < l[i_min]:
+        i_min = i
 
-        if n < l[i + 1]:
-            l[i + 1] = n
-
-        return smallest(l, i + 1)
-
-    else:
-        return l[i]
+    return smallest(l, i + 1, i_min)
 
 
 if __name__ == "__main__":
     print("n1 n2 n3 n4")
-    l = input().split()
+    l = [int(x) for x in input().split()]
 
     print(smallest(l))
 

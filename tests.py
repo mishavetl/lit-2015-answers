@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.4
 # -*- coding: utf-8 -*-
 
-import ex1, ex2, ex4, ex5
+import ex1, ex2, ex4, ex5, ex6, ex7
 from nose.tools import eq_
 
 # Utils
@@ -18,14 +18,13 @@ def test_utils_what_symb_with_plus1():
 def test_utils_what_symb_with_plus2():
     eq_(ex2.what_symb(1), "+")
 
+# Ex1
+
 def test_ex1_smallest_with_small_numbers():
-    eq_(ex1.smallest([1, 2, 3, 4, 5]), 1) 
+    eq_(ex1.smallest([1, 2, 3, 4, 5]), 1)
 
 def test_ex1_smallest_with_big_numbers():
-    eq_(ex1.smallest([2382328, 999999, 21222, 1111]), 1111) 
-
-def test_ex1_smallest_with_return_index_True():
-    eq_(ex1.smallest([238328, 999999, 21222, 1111], r_i=True), [1111, 3]) 
+    eq_(ex1.smallest([2382328, 999999, 21222, 1111]), 4)
 
 # Ex2
 
@@ -68,5 +67,31 @@ def test_ex5_plus_list1():
 
 def test_ex5_plus_list2():
     eq_(ex5.plus_list(["0", "22", "-7", "6", "93"]), 114)
+
+
+# Ex6
+
+def test_ex6_biggest():
+    eq_(ex6.biggest([1, 5, 5, 9, 0]), 4)
+
+def test_ex6_biggest2():
+    eq_(ex6.biggest([92828, 999, 78563, 555559, 1111111111]), 5)
+
+# Ex7
+
+def test_e7_main():
+    eq_(ex7.main(["1", "5", "5", "9", "0"]), 4)
+
+def test_ex7_main2():
+    eq_(ex7.main(["92828", "999", "78563", "555559", "1111111111"]), 4)
+
+def test_ex7_main3():
+    eq_(ex7.main(["144", "5", "258", "1345", "7", "258", "1", "144", "6"]), 4)
+
+def test_ex7_divide_list():
+    eq_(ex7.divide_list([1, 2, 5, 3, 6]), [[1, 2], [3, 6]])
+
+def test_ex7_divide_list2():
+    eq_(ex7.divide_list([828, 2201013, 10010023, 383848 , 222]), [[828, 2201013], [383848 , 222]])
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4 syntax=python
