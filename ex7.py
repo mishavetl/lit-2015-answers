@@ -1,39 +1,110 @@
 #!/usr/bin/env python3.4
 # -*- coding: utf-8 -*-
 
-def divide_list(l, acc=[]):
-    len_l = len(l)
+def find_i(l, elem):
+    for i in range(len(l)):
+        if l[i] == elem:
+            return i
 
-    return [l[:len_l / 2], l[-(len_l / 2):]]
+    return -1
 
-# def main(l, i=0, i_rev=-1, acc=0):
-#     print("i: ", i)
-#     print("i_rev: ", i_rev)
-#     print("acc: ", acc)
-#     if -(i_rev) + i > len(l):
-#         return acc
-#
-#     if l[i] != l[i_rev]:
-#         acc += 1
-#
-#     else:
-#         i_rev -= 1
-#
-#     return main(l, i + 1, i_rev, acc)
+def biggest_n(l):
+    amount = 0
+    max_elem = l[0]
 
-def main(l):
-    i = 0
-    x = -1
-    acc = 0
-
-    while -(i_rev) + i <= len(l):
-        if find(l[1], l[0][i]):
-            acc += 1
+    for elem in l[1:]: 
+        if elem > max_elem:
+            amount += max_elem
+            max_elem = elem
 
         else:
-            x -= 1
+            amount += elem
 
-    return acc
+    print(amount, max_elem)
+
+    return amount
+
+def main(l):
+    found = []
+    centers = []
+    i = 0
+
+    while len(l) > i:
+        checking = l[i]
+
+        if find_i(found, checking) == -1:
+            if find_i(l[i + 1:], checking) != -1:
+                found.append(checking) 
+
+            elif len(l) > i + 1 and i - 1 > -1: 
+                if l[i - 1] == l[i + 1]:
+                    found.append(checking)
+
+                elif i - 1 > 0 and len(found) > 0:
+                    if find_i(found, l[i - 1]) == -1 and l[i + 1] == found[-1]:
+                        found.append(checking)
+
+        else:
+            found.append(checking)
+        
+        i += 1
+
+    x = 0
+
+    len_found = len(found)
+
+    if len_found == 0:
+        return len(l) - 1
+
+    i = 0
+    palindrome = True
+
+    while len_found > i:
+        if found[-i - 1] != found[i]:
+            palindrome = False
+            break
+        
+        i += 1
+    
+    if palindrome:
+        return len(l) - len(found)
+
+    while len_found > x + 1:
+        checking = found[x]
+        
+        if checking == found[x + 1]:
+            j = 1
+            length = 2
+
+            while len_found > x + j + 1 and x - j > -1:
+                if found[x + j + 1] == found[x - j]:
+                    length += 2
+
+                else:
+                    break
+
+                j += 1
+
+            centers.append(length)
+        
+        elif found[x - 1] == found[x + 1]:
+            j = 2
+            length = 3
+
+            while len_found > x + j and x - j > -1:
+                if found[x + j] == found[x - j]:
+                    length += 2
+                    
+                else:
+                    break
+
+                j += 1
+
+            centers.append(length)
+
+        x += 1
+
+    return biggest_n(centers) + len(l) - len_found
 
 if __name__ == "__main__":
     print("list of n numbers")

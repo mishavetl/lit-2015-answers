@@ -2,6 +2,10 @@
 
 автор: Михаил Ветлужских 8 класс
 
+технологии: Python 3.4, Nosetests Python plugin, Git version control, Ubuntu 14.04 Linux
+
+hosting кода: Github [репозиторий проекта](https://github.com/mishavetl/lit-2015-answers)
+
 по вопросам обращаться в mishavetl@gmail.com или vetluzhskykh@dlit.dp.ua
 
 __Для того чтобы запустить надо:__
