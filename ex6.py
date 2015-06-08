@@ -1,14 +1,27 @@
 #!/usr/bin/env python3.4
 # -*- coding: utf-8 -*-
 
-def biggest(l, i=0, i_max=0):
-    if len(l) == i:
-        return i_max + 1
+# def biggest(l, i=0, i_max=0):
+#     if len(l) == i:
+#         return i_max + 1
+#
+#     if l[i] > l[i_max]:
+#         i_max = i
+#
+#     return biggest(l, i + 1, i_max)
 
-    if l[i] > l[i_max]:
-        i_max = i
+def biggest(l):
+    i = 0
+    i_max = 0
 
-    return biggest(l, i + 1, i_max)
+    while len(i) > i:
+        if l[i] > l[i_max]:
+            i_max = i
+
+        i += 1
+
+    return i_max + 1
+
 
 if __name__ == "__main__":
     print("list of n numbers")

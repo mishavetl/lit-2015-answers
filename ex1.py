@@ -1,7 +1,8 @@
 #!/usr/bin/env python3.4
 # -*- coding: utf-8 -*-
 
-def smallest(l, i=0, i_min=0):
+def smallest(l, i=0, i_min=0): # Рекурсия
+    "возвращает самое маленькое значение из списка"
     if len(l) == i:
         return i_min + 1
 
@@ -13,7 +14,8 @@ def smallest(l, i=0, i_min=0):
 
 if __name__ == "__main__":
     print("n1 n2 n3 n4")
-    l = [int(x) for x in input().split()]
+    l = [int(x) for x in input().split()] # List comprehension
+                                        # считывает входные данные и переводит их в тип integer
 
     print(smallest(l))
 

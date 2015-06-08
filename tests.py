@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.4
 # -*- coding: utf-8 -*-
 
-import ex1, ex2, ex4, ex5, ex6, ex7
+import ex1, ex2, ex4, ex5, ex6, ex7, ex8
 from nose.tools import eq_
 
 # Utils
@@ -39,8 +39,7 @@ def test_ex2_count_with_two_negative_and_two_positive_numbers():
 
 # Ex3
 
-###
-
+####
 
 # Ex4
 
@@ -93,5 +92,14 @@ def test_ex7_divide_list():
 
 def test_ex7_divide_list2():
     eq_(ex7.divide_list([828, 2201013, 10010023, 383848 , 222]), [[828, 2201013], [383848 , 222]])
+
+# Ex8
+
+def test_ex8_smaller():
+    eq_(ex8.smaller(195), '159')
+
+def test_ex8_bigger():
+    eq_(ex8.bigger(195), '519')
+
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4 syntax=python

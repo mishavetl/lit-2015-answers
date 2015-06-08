@@ -7,14 +7,15 @@ def count(l, i=0, acc=0):
     if len(l) == i + 1:
         return acc
 
-    if what_symb(int(l[i])) != what_symb(int(l[i+1])):
+    if what_symb(int(l[i])) != what_symb(int(l[i+1])): # проверяет равняется ли знак первого
+                                                        # числа знаку второго
         acc += 1
-    
+
     return count(l, i + 1, acc)
 
 
 if __name__ == "__main__":
-    print("Type temperatures separated by space:") 
+    print("Введите температуры:")
     l = input().split()
 
     print(count(l))

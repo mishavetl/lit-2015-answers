@@ -6,35 +6,34 @@ def divide_list(l, acc=[]):
 
     return [l[:len_l / 2], l[-(len_l / 2):]]
 
-#def main(l, i=0, i_rev=-1, acc=0):
-    #print("i: ", i)
-    #print("i_rev: ", i_rev)
-    #print("acc: ", acc)
-    #if -(i_rev) + i > len(l):
-        #return acc
+# def main(l, i=0, i_rev=-1, acc=0):
+#     print("i: ", i)
+#     print("i_rev: ", i_rev)
+#     print("acc: ", acc)
+#     if -(i_rev) + i > len(l):
+#         return acc
+#
+#     if l[i] != l[i_rev]:
+#         acc += 1
+#
+#     else:
+#         i_rev -= 1
+#
+#     return main(l, i + 1, i_rev, acc)
 
-    #if l[i] != l[i_rev]:
-        #acc += 1
+def main(l):
+    i = 0
+    x = -1
+    acc = 0
 
-    #else:
-        #i_rev -= 1
+    while -(i_rev) + i <= len(l):
+        if find(l[1], l[0][i]):
+            acc += 1
 
-    #return main(l, i + 1, i_rev, acc)
+        else:
+            x -= 1
 
-def main(l, i=0, x=-1, acc=0):
-    print("i: ", i)
-    print("i_rev: ", i_rev)
-    print("acc: ", acc)
-    if -(i_rev) + i > len(l):
-        return acc
-
-    if l[i] != l[i_rev]:
-        acc += 1
-
-    else:
-        i_rev -= 1
-
-    return main(l, i + 1, i_rev, acc)
+    return acc
 
 if __name__ == "__main__":
     print("list of n numbers")
