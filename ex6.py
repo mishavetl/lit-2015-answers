@@ -14,7 +14,7 @@ def biggest(l):
     i = 0
     i_max = 0
 
-    while len(i) > i:
+    while len(l) > i:
         if l[i] > l[i_max]:
             i_max = i
 

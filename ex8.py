@@ -5,8 +5,6 @@ def smaller(n):
     "возвращает самое близкое значение которое меньше 'n' из его цифр"
     i = -2
 
-    n = list(str(n))
-
     for _ in range(len(n)):
         if n[i + 1] < n[i]:
             n_bak = n[i]
@@ -21,18 +19,43 @@ def smaller(n):
     return ''.join(n)
 
 
+def sort_l(l):
+    "сортирует список из чисел, не знаю как называется так как я сам до него дошел"
+    len_l = len(l)
+
+    for i in range(len_l):
+        for j in range(len_l - i - 1):
+            if int(l[j]) > int(l[j + 1]):
+                l[j], l[j + 1] = l[j + 1], l[j] # Меняем местами
+
+    return l
+
 def bigger(n):
     "возвращает самое близкое значение которое больше 'n' из его цифр"
-    for i in range(
+    n1 = int(n[0])
+    n2 = int(n[1])
+    
+    n2_i = 1
 
+    for i in range(1, len(n)):
+        on_check = int(n[i])
+        if n1 < on_check < n2:
+            n2 = on_check
+            n2_i = i
+
+    n[n2_i] = str(n1)
+    n[0] = str(n2)
+
+
+    return n[0] + ''.join(sort_l(n[1:]))
 
 
 if __name__ == "__main__":
-    print("n1 n2 n3 n4")
-    l = [int(x) for x in input().split()] # List comprehension
-                                        # считывает входные данные и переводит их в тип integer
+    print("n")
+    l = list(input)
 
-    print(smaller(l))
+    print("Меньше: ", smaller(l))
+    print("Больше: ", bigger(l))
 
     input()
 
