@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.4
 # -*- coding: utf-8 -*-
 
-import ex1, ex2, ex4, ex5, ex6, ex7, ex8
+import ex1, ex2, ex3, ex4, ex5, ex6, ex7, ex8
 from nose.tools import eq_
 
 ## Utils
@@ -39,7 +39,30 @@ def test_ex2_count_with_two_negative_and_two_positive_numbers():
 
 ## Ex3
 
-####
+def test_ex3_Point_position_with_1():
+    point = ex3.Point(3, 4)
+    eq_(point.position(), ('quarter', 1))
+    
+def test_ex3_Point_position_with_2():
+    point = ex3.Point(-1, 2)
+    eq_(point.position(), ('quarter', 2))
+    
+def test_ex3_Point_position_with_3():
+    point = ex3.Point(-25, -36)
+    eq_(point.position(), ('quarter', 3))
+    
+def test_ex3_Point_position_with_4():
+    point = ex3.Point(50, -90)
+    eq_(point.position(), ('quarter', 4))
+    
+def test_ex3_majority():
+    eq_(ex3.majority(10, 7), True)
+    
+def test_ex3_majority2():
+    eq_(ex3.majority(20, 5), False)
+    
+def test_ex3_majority3():
+    eq_(ex3.majority(20, 10), False)
 
 ## Ex4
 
@@ -52,16 +75,15 @@ def test_ex4_count_with_three_same():
 def test_ex4_count_with_two_same_and_three_diffs():
     eq_(ex4.count(["1", "2", "1", "5", "3"], []), 4)
 
-
 ## Ex5
 
 def test_ex5_main():
     eq_(ex5.main(["88", "-22", "5", "6", "-93"]), "-")
 
-def test_ex5_main():
+def test_ex5_main2():
     eq_(ex5.main(["0", "22", "-7", "6", "93"]), "+")
 
-def test_ex5_plus_list1():
+def test_ex5_plus_list():
     eq_(ex5.plus_list(["88", "-22", "5", "6", "-93"]), -16)
 
 def test_ex5_plus_list2():
@@ -97,6 +119,9 @@ def test_ex7_main5():
 
 def test_ex7_main6():
     eq_(ex7.main([1, 8, 5, 1, 9, 6]), 3)
+    
+def test_ex7_main7():
+    eq_(ex7.main([1, 2, 3, 3, 2, 1, 2, 3]), 2)
 
 
 # find_i
@@ -116,7 +141,7 @@ def test_ex7_biggest_n():
     eq_(ex7.biggest_n([5, 2, 8, 7, 2, 10]), 24)
 
 
-def test_ex7_biggest_n1():
+def test_ex7_biggest_n2():
     eq_(ex7.biggest_n([95, 86, 31, 36, 55]), 208)
 
 ## Ex8

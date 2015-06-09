@@ -20,14 +20,22 @@ def biggest_n(l):
         else:
             amount += elem
 
-    print(amount, max_elem)
-
     return amount
+    
+def sum_l(l):
+    answer = 0
+    
+    for elem in l:
+        answer += elem
+     
+    return answer
 
 def main(l):
     found = []
     centers = []
     i = 0
+    x = 0
+    len_l = len(l)    
 
     while len(l) > i:
         checking = l[i]
@@ -49,7 +57,6 @@ def main(l):
         
         i += 1
 
-    x = 0
 
     len_found = len(found)
 
@@ -69,6 +76,7 @@ def main(l):
     if palindrome:
         return len(l) - len(found)
 
+    
     while len_found > x + 1:
         checking = found[x]
         
@@ -103,8 +111,15 @@ def main(l):
             centers.append(length)
 
         x += 1
+        
+        
+    answer = biggest_n(centers) + len_l - len_found
+    sum_centers = sum_l(centers)
 
-    return biggest_n(centers) + len(l) - len_found
+    if len_l < sum_centers:
+        answer -= (sum_centers - len_l)
+
+    return answer
 
 if __name__ == "__main__":
     print("list of n numbers")
