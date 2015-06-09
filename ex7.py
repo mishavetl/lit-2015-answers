@@ -115,11 +115,15 @@ def main(l):
         
     answer = biggest_n(centers) + len_l - len_found
     sum_centers = sum_l(centers)
+    
+    # print(answer) 
 
     if len_l < sum_centers:
-        answer -= (sum_centers - len_l)
+        answer -= (sum_centers - len_found)
 
-    return answer
+    # print([l, found, centers])
+
+    return  answer
 
 if __name__ == "__main__":
     print("list of n numbers")

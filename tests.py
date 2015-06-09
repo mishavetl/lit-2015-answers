@@ -3,6 +3,7 @@
 
 import ex1, ex2, ex3, ex4, ex5, ex6, ex7, ex8
 from nose.tools import eq_
+import random
 
 ## Utils
 
@@ -122,6 +123,9 @@ def test_ex7_main6():
     
 def test_ex7_main7():
     eq_(ex7.main([1, 2, 3, 3, 2, 1, 2, 3]), 2)
+    
+# def test_ex7_main8():
+#     eq_(ex7.main([random.randint(0, 1000) for _ in range(1000)]), 1)
 
 
 # find_i
