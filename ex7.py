@@ -4,11 +4,11 @@
 def find_i(l, elem, f=0, reverse=False):
     "находит елемент в списке" 
     if reverse:
-        while i > -1:
-            if l[i] == elem:
-                return i 
+        while f > -1:
+            if l[f] == elem:
+                return f 
                 
-            i -= 1
+            f -= 1
    
     else:
         for i in range(f, len(l)):
@@ -99,22 +99,28 @@ def main(l):
             j = 1
             length = 2
 
-            while len_found > x + j + 1 and x - j > -1:
-                checking = find_i(found, found[x - j], x + j + 1)
-                checking1 = find_i(found, found[x + j + 1], x - j, True)
+            while len_found > x + j + 1 and x - j > -1 and j > 0:
+                i1 = x - j
+                i2 = x + j + 1
+
+                checking = find_i(found, found[i1], i2)
+                checking1 = find_i(found, found[i2], i1, True)
+
+                k = checking - i2
+                m = i1 - checking1
                 
-                k = checking - (x + j + 1)
                 
-                
-                if found[x + j + 1] == found[x - j]:
+                if found[i1] == found[i2]:
                     length += 2
                     
-                elif checking != -1:
-                    k = checking - (x + j + 1)
-                    if k > m:
-                        
-                    j += k + 1
-                    answer += k
+                elif checking != -1 or checking1 != -1:
+                    if k < m:
+                        j += k - 1
+                        answer += k
+
+                    elif m < k:
+                        j += m - 1
+                        answer += m
 
                 else:
                     break
@@ -132,14 +138,27 @@ def main(l):
             length = 3
 
             while len_found > x + j and x - j > -1:
-                checking = find_i(found, found[x - j], x + j)
+                i1 = x - j
+                i2 = x + j
+
+                checking = find_i(found, found[i1], i2)
+                checking1 = find_i(found, found[i2], i1, True)
+
+                k = checking - i2
+                m = i1 - checking1
                 
-                if found[x + j] == found[x - j]:
+                
+                if found[i1] == found[i2]:
                     length += 2
-                    
-                elif checking != -1:
-                    j += checking - (x + j - 1)
-                    answer += checking - (x + j - 1)
+                
+                elif checking != -1 or checking1 != -1:
+                    if k < m:
+                        j += k - 1
+                        answer += k
+
+                    elif m < k:
+                        j += m - 1
+                        answer += m
                     
                 else:
                     break
