@@ -1,10 +1,19 @@
 #!/usr/bin/env python3.4
 # -*- coding: utf-8 -*-
 
-def find_i(l, elem):
-    for i in range(len(l)):
-        if l[i] == elem:
-            return i
+def find_i(l, elem, f=0, reverse=False):
+    "находит елемент в списке" 
+    if reverse:
+        while i > -1:
+            if l[i] == elem:
+                return i 
+                
+            i -= 1
+   
+    else:
+        for i in range(f, len(l)):
+            if l[i] == elem:
+                return i
 
     return -1
 
@@ -59,6 +68,9 @@ def main(l):
 
 
     len_found = len(found)
+    
+    print("len_found: ", len_found)
+    print("found: ", found)
 
     if len_found == 0:
         return len(l) - 1
@@ -75,6 +87,9 @@ def main(l):
     
     if palindrome:
         return len(l) - len(found)
+        
+    
+    answer = 0 
 
     
     while len_found > x + 1:
@@ -85,12 +100,29 @@ def main(l):
             length = 2
 
             while len_found > x + j + 1 and x - j > -1:
+                checking = find_i(found, found[x - j], x + j + 1)
+                checking1 = find_i(found, found[x + j + 1], x - j, True)
+                
+                k = checking - (x + j + 1)
+                
+                
                 if found[x + j + 1] == found[x - j]:
                     length += 2
+                    
+                elif checking != -1:
+                    k = checking - (x + j + 1)
+                    if k > m:
+                        
+                    j += k + 1
+                    answer += k
 
                 else:
                     break
 
+                print("j: ", j)
+                print("length: ", length)
+                print("checking: ", checking)
+                
                 j += 1
 
             centers.append(length)
@@ -100,11 +132,21 @@ def main(l):
             length = 3
 
             while len_found > x + j and x - j > -1:
+                checking = find_i(found, found[x - j], x + j)
+                
                 if found[x + j] == found[x - j]:
                     length += 2
                     
+                elif checking != -1:
+                    j += checking - (x + j - 1)
+                    answer += checking - (x + j - 1)
+                    
                 else:
                     break
+                
+                print("j: ", j)
+                print("length: ", length)
+                print("checking: ", checking)
 
                 j += 1
 
@@ -113,7 +155,7 @@ def main(l):
         x += 1
         
         
-    answer = biggest_n(centers) + len_l - len_found
+    answer += biggest_n(centers) + len_l - len_found
     sum_centers = sum_l(centers)
     
     # print(answer) 
@@ -121,13 +163,13 @@ def main(l):
     if len_l < sum_centers:
         answer -= (sum_centers - len_found)
 
-    # print([l, found, centers])
+    print([l, found, centers])
 
     return  answer
 
 if __name__ == "__main__":
     print("list of n numbers")
-    l = input.split()
+    l = input().split()
 
     print(main(l))
 
